@@ -259,7 +259,7 @@ return array(
   'Remove' => 'ลบ',
   'Repair' => 'แจ้งซ่อม & บำรุง',
   'Repair details' => 'รายละเอียดใบรับซ่อม',
-  'Repair job description' => 'รายละเอียดการซ่อม',
+  'Repair job description' => 'รายละเอียดการซ่อม & บำรุง',
   'Repair jobs' => 'งานซ่อม & บำรุง',
   'Repair list' => 'รายงานซ่อม & บำรุง',
   'Repair note' => 'หมายเหตุการซ่อม',

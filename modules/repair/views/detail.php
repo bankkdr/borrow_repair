@@ -30,7 +30,7 @@ class View extends \Gcms\View
     private $statuses;
 
     /**
-     * แสดงรายละเอียดการซ่อม
+     * แสดงรายละเอียดการซ่อม & บำรุง
      *
      * @param object $index
      * @param array $login
