@@ -268,7 +268,7 @@ return array(
   'Repair system' => 'ระบบแจ้งซ่อม & บำรุง',
   'Repairman' => 'ช่างซ่อม',
   'Repassword' => 'ยืนยันรหัสผ่าน',
-  'Report' => 'รายงาน',
+  'Report' => 'รายงานยืม & คืน',
   'resized automatically' => 'ปรับขนาดอัตโนมัติ',
   'Return' => 'คืน',
   'Returned' => 'ส่งคืน',
