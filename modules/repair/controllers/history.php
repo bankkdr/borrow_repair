@@ -25,7 +25,7 @@ use Kotchasan\Language;
 class Controller extends \Gcms\Controller
 {
     /**
-     * ประวัติการแจ้งซ่อม
+     * ประวัติการแจ้งซ่อม & บำรุง
      *
      * @param Request $request
      *

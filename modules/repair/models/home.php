@@ -23,7 +23,7 @@ use Kotchasan\Database\Sql;
 class Model extends \Kotchasan\Model
 {
     /**
-     * อ่านงานซ่อมใหม่วันนี้
+     * อ่านงานซ่อม & บำรุงใหม่วันนี้
      *
      * @return object
      */

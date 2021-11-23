@@ -89,7 +89,7 @@ class Model extends \Kotchasan\KBase
     }
 
     /**
-     * คืนค่าสถานะการซ่อมสำหรับใส่ลงใน select
+     * คืนค่าสถานะการซ่อม & บำรุงสำหรับใส่ลงใน select
      *
      * @return array
      */

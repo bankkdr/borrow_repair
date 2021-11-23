@@ -39,7 +39,7 @@ class View extends \Gcms\View
      */
     public function render($index, $login)
     {
-        // สถานะการซ่อม
+        // สถานะการซ่อม & บำรุง
         $this->statuses = \Repair\Status\Model::create();
         // อ่านสถานะการทำรายการทั้งหมด
         $statuses = \Repair\Detail\Model::getAllStatus($index->id);

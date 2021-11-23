@@ -45,11 +45,11 @@ class Controller extends \Kotchasan\KBase
         // สามารถจัดการรายการซ่อมได้, ช่างซ่อม
         if (Login::checkPermission($login, array('can_manage_repair', 'can_repair'))) {
             $submenus[] = array(
-                'text' => '{LNG_Repair list} ({LNG_Repairman})',
+                'text' => '{LNG_Repair list}',
                 'url' => 'index.php?module=repair-setup',
             );
         }
-        // เมนูแจ้งซ่อม
+        // เมนูแจ้งซ่อม & บำรุง
         $menu->add('repair', '{LNG_Repair jobs}', null, $submenus);
         $menu->addTopLvlMenu('repair', '{LNG_Repair jobs}', null, $submenus, 'member');
         // สามารถตั้งค่าระบบได้

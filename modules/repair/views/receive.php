@@ -22,7 +22,7 @@ use Kotchasan\Html;
 class View extends \Gcms\View
 {
     /**
-     * เพิ่ม-แก้ไข แจ้งซ่อม
+     * เพิ่ม-แก้ไข แจ้งซ่อม & บำรุง
      *
      * @param object $index
      *

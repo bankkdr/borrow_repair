@@ -102,7 +102,7 @@ class Model extends \Kotchasan\Model
                             $repair['job_id'] = \Index\Number\Model::get(0, 'repair_job_no', $repair_table, 'job_id');
                             $repair['customer_id'] = $login['id'];
                             $repair['create_date'] = date('Y-m-d H:i:s');
-                            // บันทึกรายการแจ้งซ่อม
+                            // บันทึกรายการแจ้งซ่อม & บำรุง
                             $log = array(
                                 'repair_id' => $db->insert($repair_table, $repair),
                                 'member_id' => $login['id'],
@@ -111,12 +111,12 @@ class Model extends \Kotchasan\Model
                                 'create_date' => $repair['create_date'],
                                 'operator_id' => 0,
                             );
-                            // บันทึกประวัติการทำรายการ แจ้งซ่อม
+                            // บันทึกประวัติการทำรายการ แจ้งซ่อม & บำรุง
                             $db->insert($repair_status_table, $log);
                             // ใหม่ ส่งอีเมลไปยังผู้ที่เกี่ยวข้อง
                             $ret['alert'] = \Repair\Email\Model::send($log['repair_id']);
                         } else {
-                            // แก้ไขรายการแจ้งซ่อม
+                            // แก้ไขรายการแจ้งซ่อม & บำรุง
                             $db->update($repair_table, $index->id, $repair);
                             // คืนค่า
                             $ret['alert'] = Language::get('Saved successfully');

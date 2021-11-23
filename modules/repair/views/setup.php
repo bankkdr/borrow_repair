@@ -48,7 +48,7 @@ class View extends \Gcms\View
         );
         // สามารถจัดการรายการซ่อมได้
         $isAdmin = Login::checkPermission($login, 'can_manage_repair');
-        // สถานะการซ่อม
+        // สถานะการซ่อม & บำรุง
         $this->statuses = \Repair\Status\Model::create();
         // รายชื่อช่างซ่อม
         $this->operators = \Repair\Operator\Model::create();

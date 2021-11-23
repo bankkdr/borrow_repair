@@ -25,7 +25,7 @@ use Kotchasan\Language;
 class Model extends \Kotchasan\KBase
 {
     /**
-     * สถานะการซ่อม
+     * สถานะการซ่อม & บำรุง
      *
      * @return array
      */
@@ -41,7 +41,7 @@ class Model extends \Kotchasan\KBase
     }
 
     /**
-     * อ่านรายการ สถานะการซ่อม สำหรับใส่ลงใน select
+     * อ่านรายการ สถานะการซ่อม & บำรุง สำหรับใส่ลงใน select
      *
      * @return array
      */

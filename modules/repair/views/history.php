@@ -33,7 +33,7 @@ class View extends \Gcms\View
     private $operators;
 
     /**
-     * ประวัติการแจ้งซ่อม
+     * ประวัติการแจ้งซ่อม & บำรุง
      *
      * @param Request $request
      * @param array   $login
@@ -46,7 +46,7 @@ class View extends \Gcms\View
             'customer_id' => $login['id'],
             'status' => $request->request('status', -1)->toInt(),
         );
-        // สถานะการซ่อม
+        // สถานะการซ่อม & บำรุง
         $this->statuses = \Repair\Status\Model::create();
         $this->operators = \Repair\Operator\Model::create();
         // URL สำหรับส่งให้ตาราง

@@ -23,7 +23,7 @@ use Kotchasan\Http\Request;
 class View extends \Gcms\View
 {
     /**
-     * สถานะการซ่อม
+     * สถานะการซ่อม & บำรุง
      *
      * @param Request $request
      *
