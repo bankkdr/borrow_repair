@@ -141,12 +141,25 @@ if (defined('ROOT_PATH')) {
                     $db->query("ALTER TABLE `$table_borrow_items` DROP `inventory_id`");
                 }
                 $content[] = '<li class="correct">ปรับปรุงตาราง `'.$table_borrow_items.'` สำเร็จ</li>';
+                 // ตาราง repair
+                 $table_repair = $db_config['prefix'].'_repair';
+                 if (!$db->fieldExists($table_repair, 'product_no')) {
+                     $db->query("ALTER TABLE `$table_repair` ADD `product_no` VARCHAR(50) NOT NULL");
+                     $db->query("UPDATE `$table_repair` AS R SET `product_no`=(SELECT `product_no` FROM `$table_items` AS I WHERE I.`inventory_id`=R.`inventory_id`)");
+                     $db->query("ALTER TABLE `$table_repair` DROP `inventory_id`");
+                 }
+                 $content[] = '<li class="correct">ปรับปรุงตาราง `'.$table_repair.'` สำเร็จ</li>';
                 // category
                 $db->query("DELETE FROM `$table_category` WHERE `type` IN ('unit')");
                 $db->query("ALTER TABLE `$table_category` CHANGE `category_id` `category_id` VARCHAR(10) NOT NULL DEFAULT '0'");
                 $content[] = '<li class="correct">ปรับปรุงตาราง `'.$table_category.'` สำเร็จ</li>';
                 // ตาราง number
                 $table = $db_config['prefix'].'_number';
+                if (!$db->tableExists($table)) {
+                    $db->query("CREATE TABLE `$table` (`type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,`auto_increment` int(11) NOT NULL,`last_update` date DEFAULT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8");
+                    $db->query("ALTER TABLE `$table` ADD PRIMARY KEY (`type`)");
+                    $content[] = '<li class="correct">สร้างตาราง `'.$table.'` สำเร็จ</li>';
+                }
                 if (!$db->fieldExists($table, 'prefix')) {
                     $db->query("ALTER TABLE `$table` DROP PRIMARY KEY");
                     $db->query("ALTER TABLE `$table` ADD `prefix` VARCHAR(10) NOT NULL AFTER `type`");

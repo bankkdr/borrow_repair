@@ -72,7 +72,14 @@ INSERT INTO `{prefix}_category` (`type`, `category_id`, `topic`, `color`, `publi
 ('type_id', '4', 'จอมอนิเตอร์', '', 1),
 ('category_id', '1', 'เครื่องใช้ไฟฟ้า', NULL, 1),
 ('category_id', '3', 'Ram', NULL, 1),
-('category_id', '4', 'คอมพิวเตอร์', NULL, 1);
+('category_id', '4', 'คอมพิวเตอร์', NULL, 1),
+('repairstatus', 1, 'แจ้งซ่อม', '#660000', 1),
+('repairstatus', 2, 'กำลังดำเนินการ', '#120eeb', 1),
+('repairstatus', 3, 'รออะไหล่', '#d940ff', 1),
+('repairstatus', 4, 'ซ่อมสำเร็จ', '#06d628', 1),
+('repairstatus', 5, 'ซ่อมไม่สำเร็จ', '#FF0000', 1),
+('repairstatus', 6, 'ยกเลิกการซ่อม', '#FF6F00', 1),
+('repairstatus', 7, 'ส่งมอบเรียบร้อย', '#000000', 1);
 
 -- --------------------------------------------------------
 
@@ -157,7 +164,42 @@ CREATE TABLE `{prefix}_number` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `{prefix}_repair`
+--
+
+CREATE TABLE `{prefix}_repair` (
+  `id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `product_no` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `job_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `job_description` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `create_date` datetime NOT NULL,
+  `appointment_date` date DEFAULT NULL,
+  `appraiser` decimal(10,2) NOT NULL DEFAULT 0,
+  `repair_no` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `{prefix}_repair_status`
+--
+
+CREATE TABLE `{prefix}_repair_status` (
+  `id` int(11) NOT NULL,
+  `repair_id` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `operator_id` int(11) NOT NULL,
+  `comment` varchar(1000) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `create_date` datetime NOT NULL,
+  `cost` decimal(10,2) NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
 --
 -- Table structure for table `{prefix}_user`
 --
@@ -243,6 +285,20 @@ ALTER TABLE `{prefix}_language`
 --
 ALTER TABLE `{prefix}_number`
   ADD PRIMARY KEY (`type`,`prefix`);
+--
+-- Indexes for table `{prefix}_repair`
+--
+ALTER TABLE `{prefix}_repair`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `job_id` (`job_id`);
+
+--
+-- Indexes for table `{prefix}_repair_status`
+--
+ALTER TABLE `{prefix}_repair_status`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `repair_id` (`repair_id`),
+  ADD KEY `operator_id` (`operator_id`);
 
 --
 -- Indexes for table `{prefix}_user`
@@ -269,6 +325,17 @@ ALTER TABLE `{prefix}_inventory`
 -- AUTO_INCREMENT for table `{prefix}_language`
 --
 ALTER TABLE `{prefix}_language`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  --
+-- AUTO_INCREMENT for table `{prefix}_repair`
+--
+ALTER TABLE `{prefix}_repair`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `{prefix}_repair_status`
+--
+ALTER TABLE `{prefix}_repair_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
