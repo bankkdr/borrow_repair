@@ -43,7 +43,7 @@ return array(
   'Can manage repair' => 'สามารถจัดการเครื่องซ่อมได้',
   'Can manage borrow' => 'สามารถจัดการการยืม',
   'Can manage the' => 'สามารถจัดการ',
-  'Can manage the inventory' => 'สามารถจัดการคลังสินค้าได้',
+  'Can manage the inventory' => 'สามารถจัดการคลังครุภัณฑ์ได้',
   'Can not be performed this request. Because they do not find the information you need or you are not allowed' => 'ไม่สามารถดำเนินการตามที่ร้องขอได้ เนื่องจากไม่พบข้อมูลที่ต้องการ หรือ คุณไม่มีสิทธิ์',
   'Cancel' => 'ยกเลิก',
   'Canceled successfully' => 'ยกเลิกเรียบร้อย',
@@ -132,7 +132,7 @@ return array(
   'Initial repair status' => 'สถานะซ่อมเริ่มต้น',
   'Installed modules' => 'โมดูลที่ติดตั้งแล้ว',
   'Invalid :name' => ':name ไม่ถูกต้อง',
-  'Inventory' => 'คลังสินค้า',
+  'Inventory' => 'คลังครุภัณฑ์',
   'INVENTORY_CATEGORIES' => array(
     'category_id' => 'หมวดหมู่',
     'type_id' => 'ประเภท',
